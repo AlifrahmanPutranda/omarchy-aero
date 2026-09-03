@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "aero.minimize",
+  "name": "Aero Minimize",
+  "version": "1.0.0",
+  "author": "Alifrahman Putranda",
+  "license": "MIT",
+  "description": "Windows Aero-style minimize for Hyprland: SUPER+M minimizes, the preview shrinks windows into small cards with numbered badges, and a number key restores that window instantly.",
+  "kinds": ["service"],
+  "entryPoints": {
+    "service": "Aero.qml"
+  }
+}

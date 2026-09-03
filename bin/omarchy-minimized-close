@@ -1,0 +1,13 @@
+#!/bin/bash
+# Close the minimized-window preview: leave the submap, hide the special
+# workspace if it is still on screen, drop the state marker.
+set -u
+
+runtime="${XDG_RUNTIME_DIR:-/tmp}/omarchy-minimized"
+rm -f "$runtime"
+
+hyprctl dispatch "hl.dsp.submap('reset')" >/dev/null 2>&1
+
+if omarchy-minimized-visible; then
+  hyprctl dispatch "hl.dsp.workspace.toggle_special('minimized')" >/dev/null 2>&1
+fi

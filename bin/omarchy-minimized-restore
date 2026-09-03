@@ -1,0 +1,23 @@
+#!/bin/bash
+# Restore the Nth minimized window (badge order: oldest window first) to the
+# workspace we opened the preview from. Closes the preview when the stack
+# empties.
+set -u
+
+n=$(( ${1:-1} - 1 ))
+runtime="${XDG_RUNTIME_DIR:-/tmp}/omarchy-minimized"
+
+addr=$(hyprctl -j clients 2>/dev/null | jq -r --argjson i "$n" '
+  [ .[] | select((.workspace.name // "") == "special:minimized") ]
+  | sort_by(.at)
+  | if $i >= 0 and $i < length then .[$i].address else "" end')
+[[ -z "$addr" || "$addr" == "null" ]] && exit 0
+
+ws=$(cat "$runtime" 2>/dev/null || true)
+[[ -z "$ws" ]] && ws="1"
+
+hyprctl dispatch "hl.dsp.window.move({ window = 'address:$addr', workspace = '$ws', follow = true })" >/dev/null 2>&1
+
+# The view follows the restored window, so the preview is behind us: leave
+# the submap and hide the special workspace if anything is still on it.
+exec omarchy-minimized-close

@@ -1,0 +1,3 @@
+#!/bin/bash
+# Exit 0 when the special:minimized preview is currently on screen.
+[[ "$(hyprctl -j repl "local s = hl.get_active_special_workspace(); return s and s.name or ''" 2>/dev/null | head -1)" == "special:minimized" ]]

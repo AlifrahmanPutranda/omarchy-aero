@@ -1,0 +1,20 @@
+#!/bin/bash
+# Print JSON badges for minimized windows while the preview is visible.
+# Order matches omarchy-minimized-restore: oldest window first.
+set -u
+
+if ! omarchy-minimized-visible; then
+  echo "[]"
+  exit 0
+fi
+
+hyprctl -j clients 2>/dev/null | jq -c '
+  [ .[] | select((.workspace.name // "") == "special:minimized") ]
+  | sort_by(.at)
+  | to_entries
+  | map({
+      index: (.key + 1),
+      title: (.value.title // .value.initialClass // "window"),
+      x: .value.at[0],
+      y: .value.at[1]
+    })' 2>/dev/null || echo "[]"

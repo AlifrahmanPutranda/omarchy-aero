@@ -1,0 +1,29 @@
+#!/bin/bash
+# Toggle the Aero-style minimized-window preview.
+# Open: show the special workspace as small cards, remember where we came
+# from, and arm the number-key submap (1..9, 0 = 10 restore a window).
+# Close: same key again, ESC, or Enter (see omarchy-minimized-close).
+set -u
+
+runtime="${XDG_RUNTIME_DIR:-/tmp}/omarchy-minimized"
+
+visible() {
+  omarchy-minimized-visible
+}
+
+# A stale marker (e.g. Hyprland dropped the special workspace on a config
+# reload) leaves nothing to close: treat the keypress as a fresh open.
+if [[ -f "$runtime" ]] && omarchy-minimized-visible; then
+  exec omarchy-minimized-close
+fi
+rm -f "$runtime"
+
+# Remember the workspace to restore windows back to (the one focused now,
+# before the special workspace takes over the screen).
+ws=$(hyprctl -j activeworkspace 2>/dev/null | jq -r '.name // "1"')
+[[ -z "$ws" || "$ws" == "special:minimized" ]] && ws="1"
+mkdir -p "$(dirname "$runtime")"
+printf '%s' "$ws" > "$runtime"
+
+visible || hyprctl dispatch "hl.dsp.workspace.toggle_special('minimized')" >/dev/null 2>&1
+hyprctl dispatch "hl.dsp.submap('minimized')" >/dev/null 2>&1
