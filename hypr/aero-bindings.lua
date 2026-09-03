@@ -1,4 +1,3 @@
--- >>> aero.minimize bindings >>>
 -- Managed by omarchy-aero install.sh; edit in the repo and re-run install.
 
 -- Minimize: hide the focused window into a hidden special workspace.
@@ -43,4 +42,3 @@ hl.define_submap("minimized", function()
     description = "Close minimized preview",
   })
 end)
--- <<< aero.minimize bindings <<<
