@@ -1,5 +1,4 @@
-MIT License with Attribution Requirement
-=========================================
+MIT License
 
 Copyright (c) 2026 Alifrahman Putranda
 
@@ -10,24 +9,8 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-1. The above copyright notice and this permission notice shall be included
-   in all copies or substantial portions of the Software.
-
-2. ATTRIBUTION. Any product, project, distribution, derivative work, or
-   substantial portion of the Software — whether free or commercial — must
-   visibly credit the original author by name. Acceptable forms of credit
-   include, but are not limited to:
-
-     - "Aero minimize for Omarchy by Alifrahman Putranda"
-     - "Based on omarchy-aero by Alifrahman Putranda"
-       (https://github.com/AlifrahmanPutranda/omarchy-aero)
-
-   in the README, documentation, about screen, credits section, or other
-   reasonably visible location of the using work. Bundling or redistributing
-   the Software inside a larger product does not waive this requirement.
-
-3. Commercial use is explicitly permitted. The attribution condition above
-   is the only additional obligation for commercial users.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

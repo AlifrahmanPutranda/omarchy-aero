@@ -127,13 +127,8 @@ Everything lives in plain files — edit and re-run `./install.sh`:
 
 ## License
 
-**MIT with an attribution requirement** — see [LICENSE](LICENSE).
+**[MIT](LICENSE)** — free for personal **and** commercial use.
 
-Free for personal **and commercial** use. The only extra condition: if you use
-this in a product, project, or distribution, **credit the author by name**,
-e.g.:
-
-> Aero minimize for Omarchy by Alifrahman Putranda
-> https://github.com/AlifrahmanPutranda/omarchy-aero
-
-in your README, docs, about screen, or other reasonably visible location.
+The only condition is the standard one: keep the copyright and permission
+notice (which carries the author's name) with copies or substantial portions
+of the Software. No public credit is required.
