@@ -7,7 +7,7 @@ minimized window into a row of small preview cards with **numbered badges** —
 press that number (or click the badge) and the window is instantly back on
 the workspace you came from. No thinking, no hunting.
 
-![Aero preview](docs/aero-preview.png)
+![Aero preview](docs/aero-preview-v2.png)
 
 ## Keys
 
